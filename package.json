@@ -1,6 +1,6 @@
 {
   "name": "ali-cdn-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "refresh and push ali-cdn in shell",
   "main": "index.js",
   "bin": {
