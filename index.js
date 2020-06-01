@@ -1,35 +1,51 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-
+const program = require("commander");
+const Core = require("@alicloud/pop-core");
 program
-    .option('-i, --AccessKeyId <value>', 'Aliyun AccessKeyId')
-    .option('-k, --AccessKeySecret <value>', 'Aliyun AccessKeySecret')
-    .option('-d, --refreshDir <dir>', 'refresh dir on CDN Cache to be expired')
-    .option('-f, --refreshFile <file>', 'refresh file on CDN Cache to be expired')
-    .option('-p, --pushFile <file>', 'push file into CDN L2 Cache')
-    .parse(process.argv);
+  .option("-i, --AccessKeyId <value>", "Aliyun AccessKeyId")
+  .option("-k, --AccessKeySecret <value>", "Aliyun AccessKeySecret")
+  .option("-r, --refresh <objectPath>", "refresh file or dir on DCDN Cache")
+  .option("-p, --preload <objectPah>", "push file or dir into DCDN L2 Cache")
+  .parse(process.argv);
 
-var cdn = require('aliyun-cdn-refresh')({
-    accessKeyId: program.AccessKeyId,
-    secretAccessKey: program.AccessKeySecret,
-    endpoint: 'https://cdn.aliyuncs.com',
-    timeout: 5000,
+const client = new Core({
+  accessKeyId: program.AccessKeyId,
+  accessKeySecret: program.AccessKeySecret,
+  endpoint: "https://dcdn.aliyuncs.com",
+  apiVersion: "2018-01-15",
 });
 
-function callback(err, result) {
-    if (err) {
-        throw err;
-    }
-    // console.log(result.res.statusCode);
-    // console.log(result.res.headers);
-    // console.log(result.data);
-    if (result.res.statusCode !== 200) {
-        console.log('error: ' + result.data.Message);
-        process.exit(1);
-    }
-}
+const params = {
+  RegionId: "cn-hangzhou",
+};
 
-program.refreshDir && cdn.refreshDir(program.refreshDir, callback);
-program.refreshFile && cdn.refreshFile(program.refreshFile, callback);
-program.pushFile && cdn.pushFile(program.pushFile, callback);
+const requestOption = {
+  method: "POST",
+};
+
+const callback = function (result) {
+  console.log(JSON.stringify(result));
+};
+
+const ex = function (ex) {
+  console.log(ex);
+};
+
+program.refresh &&
+  client
+    .request(
+      "RefreshDcdnObjectCaches",
+      { ...params, ObjectPath: program.refresh },
+      requestOption
+    )
+    .then(callback, ex);
+
+program.preload &&
+  client
+    .request(
+      "PreloadDcdnObjectCaches",
+      { ...params, ObjectPath: program.preload },
+      requestOption
+    )
+    .then(callback, ex);

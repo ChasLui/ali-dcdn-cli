@@ -1,7 +1,7 @@
 {
   "name": "ali-cdn-cli",
-  "version": "1.0.2",
-  "description": "refresh and push ali-cdn in shell",
+  "version": "1.0.0",
+  "description": "refresh and push ali-dcdn in shell",
   "main": "index.js",
   "bin": {
     "ali-cdn-cli": "index.js"
@@ -11,22 +11,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/flyskywhy/ali-cdn-cli.git"
+    "url": "git+ssh://git@github.com/chaslui/ali-dcdn-cli.git"
   },
   "keywords": [
-    "alicdn",
-    "ali-cdn",
-    "aliyun-cdn",
-    "cdn.aliyuncs.com"
+    "alidcdn",
+    "ali-dcdn",
+    "aliyun-dcdn",
+    "dcdn.aliyuncs.com"
   ],
-  "author": "flyskywhy",
+  "author": "ChasLui<chaslui@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/flyskywhy/ali-cdn-cli/issues"
+    "url": "https://github.com/chaslui/ali-dcdn-cli/issues"
   },
-  "homepage": "https://github.com/flyskywhy/ali-cdn-cli#readme",
+  "homepage": "https://github.com/chaslui/ali-dcdn-cli#readme",
   "dependencies": {
-    "aliyun-cdn-refresh": "1.2.0",
+    "@alicloud/pop-core": "^1.7.9",
     "commander": "^2.16.0"
   }
 }
