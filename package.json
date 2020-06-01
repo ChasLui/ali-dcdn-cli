@@ -1,10 +1,10 @@
 {
   "name": "ali-dcdn-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "refresh and push ali-dcdn in shell",
   "main": "index.js",
   "bin": {
-    "ali-cdn-cli": "index.js"
+    "ali-dcdn-cli": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
