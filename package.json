@@ -1,6 +1,6 @@
 {
   "name": "ali-dcdn-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "refresh and push ali-dcdn in shell",
   "main": "index.js",
   "bin": {
