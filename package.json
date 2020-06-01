@@ -1,5 +1,5 @@
 {
-  "name": "ali-cdn-cli",
+  "name": "ali-dcdn-cli",
   "version": "1.0.0",
   "description": "refresh and push ali-dcdn in shell",
   "main": "index.js",
