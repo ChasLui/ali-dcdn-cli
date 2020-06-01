@@ -24,7 +24,7 @@ ali-dcdn-cli -i xxx -k xxx -r http://yourcdndomain/img/
 ali-dcdn-cli -i xxx -k xxx -r http://yourcdndomain/img/1.png
 ```
 
-## [预热](https://help.aliyun.com/document_detail/130636.html?spm=a2c4g.11186623.6.699.51601595SFFAbp) push file into CDN L2 cache
+## [预热](https://help.aliyun.com/document_detail/130636.html?spm=a2c4g.11186623.6.699.51601595SFFAbp) preload file into DCDN L2 cache
 
 ```sh
 ali-dcdn-cli -i xxx -k xxx -r http://yourcdndomain/img/1.png
